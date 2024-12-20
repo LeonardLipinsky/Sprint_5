@@ -1,6 +1,6 @@
 import pytest
 from selenium import webdriver
-from tests.locators import Locators
+from locators import Locators
 
 
 @pytest.fixture
@@ -13,7 +13,8 @@ def driver():
 @pytest.fixture
 def login(driver):
     driver.find_element(*Locators.ENTER_ACCOUNT_BUTTON).click()
-    driver.find_element(*Locators.ENTER_EMAIL_FIELD).send_keys('name2@name.com')
-    driver.find_element(*Locators.ENTER_PASSWORD_FIELD).send_keys('123456')
+    driver.find_element(*Locators.EMAIL_FIELD).click()
+    driver.find_element(*Locators.FIELD_FOCUSED).send_keys('name2@name.com')
+    driver.find_element(*Locators.PASSWORD_FIELD).send_keys('123456')
     driver.find_element(*Locators.ENTER_ACCOUNT_LOGIN_BUTTON).click()
     return driver

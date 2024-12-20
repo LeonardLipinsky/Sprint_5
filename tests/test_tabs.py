@@ -1,4 +1,4 @@
-from tests.locators import Locators
+from locators import Locators
 
 class TestTabs:
     def test_burger_constructor(self, driver):
@@ -11,4 +11,3 @@ class TestTabs:
         driver.find_element(*Locators.BUNS_TAB).click()
         buns = driver.find_element(*Locators.BUNS_TAB_TEXT).text
         assert buns == 'Булки'
-        driver.quit()
